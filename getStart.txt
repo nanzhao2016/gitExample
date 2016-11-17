@@ -14,3 +14,8 @@
 6. Step 5 only locks the commit in the local repository but sitll does not synce up to github.com. There needs a sink:
 	git push
 	This push all the things on this repository to the site github.com
+	Attention: to make sure that "git push" works, before "git push", always lock a commit !
+7. To remove a modification:
+	git checkout filename
+8. To get the content from the repository stored on the github.com:
+	git pull
