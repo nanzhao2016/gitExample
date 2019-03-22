@@ -1,0 +1,78 @@
+Git : version control system (VCS)
+Git vs. Github
+Git is the tool to upload and download the projects (project management)
+Github is the platforme to stoke different projects
+
+Git is used for collaboration, versioning, parallel programme
+Git-scm.com
+
+i. Create project folder, ex: gitExample
+Ii. Enter into the folder and create working file, ex: index.html
+
+Step 0: git init
+	--- initialize empty git repository for the working folder (master - principle branch)
+	--- git config --global user.name ‘nanzhao2016’
+	--- git config --global user.email ‘bella.zn@gmail.com’
+
+Case I : Master branch
+Step 1: git add file name or .  ex: git add index.html / git add .
+	--- add this file into the list of documents to be saved (pre-saving, in the cache) / staged
+	--- add all the files under this folder to cache
+	--- option * : add files with the same extension ex: git add *.html
+	--- each time a new file is created in the folder, should use git add . to add all the documents to caches list
+Step 2: git status
+	--- get all the documents existing on the pre-saving/cache list
+	--- git rm --cached index.html (to remove/unstage the file in the cache, without option cached, the file will be removed completely)
+	--- git rm -r --cached folder name (to remove/unstage a folder from cached list)
+	--- git rm -r --cached . (to remove/unstage all the files/folders in the cached list)
+	--- when a file once is added to git cache, even this file is deleted from the folder, git can discard changes in the working directory: git chekout -- file name or .
+Step 3: git commit
+	--- save files
+	--- vim environment, can leave comments
+	--- after this step, the cached list is emptied, meaning that all the documents in the list are saved
+Step 3.1: modification after saving
+--- git status : information shows which file is modified in red color
+--- “no changes added to commit” : git informs you that the modified files are not taken considered by the saving system, need to be re-added
+--- git commit -m ‘’ (to re-save the modified files with comments)
+--- good habit: do git commit -m with comment information to track every modification
+Step 4: gitignore file: touch .gitignore
+--- files listed in .gitignore will be ignore when doing git commit and git status
+
+Case II: Parallel Branch
+Step 1: git branch fileJS
+ 	--- create a parallel branch named fileJS, utill now nothing changes
+Step 2: git checkout fileJS
+--- switch from master branch to a parallel branch
+--- git branch --list (to get all the available branches indicating the current branch)
+Step 3: create new files, add modifications for the existing files …
+--- touch main.js, add a line (script information on index.html)
+--- git add . git commit -m ‘Add ...’
+--- on the branch fileJS, you can see under the working folder, there are three files: index.html, styls.css and main.js
+Step 4: go back to master branch
+--- git checkout master
+--- find out that there is no modification (2 original files, no new line in index.html)
+--- this is the advantage of parallel branch: to keep different versions of code/programme at the same time without duplicating folder
+Step 5: git merge fileJS
+--- merge other branches to the master branch (once the temporary version is valid)
+
+Case III: Push project upon Github
+Step 1: create a project on the Github
+--- it is the place where to upload the working project
+Step 2: git remote add origin https://github.com/nanzhao2016/gitExample.git
+--- create a link between the github repository (origin) and the current working directory
+Step 3: git push -u origin master
+	--- push master branch to the github repository
+	--- git push -f origin master: force to push
+	--- git push --set-upstream origin master: to push current branch to its upstream branch
+Step 4: add README, push README file
+	--- touch README.md
+	--- git add .
+	--- git commit -m ‘Add README file’
+	--- git push
+Step 5: git pull
+--- verify/check modification in the folder, very useful in the case of collaboration with several developers
+
+Case IV: Clone project
+Step 1: git clone https://github.com/nanzhao2016/gitExample.git
+--- clone this project in no matter what folder
+--- get the working project anytime when you want
