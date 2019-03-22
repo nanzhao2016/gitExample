@@ -60,6 +60,9 @@ Step 1: create a project on the Github
 	--- it is the place where to upload the working project
 Step 2: git remote add origin https://github.com/nanzhao2016/gitExample.git
 	--- create a link between the github repository (origin) and the current working directory
+	--- solution for “fatal : remote origin already exists”
+		: git remote rm origin
+		: git remote add origin xx.git
 Step 3: git push -u origin master
 	--- push master branch to the github repository
 	--- git push -f origin master: force to push
