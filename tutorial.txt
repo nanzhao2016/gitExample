@@ -35,6 +35,8 @@ Step 3.1: modification after saving
 	--- “no changes added to commit” : git informs you that the modified files are not taken considered by the saving system, need to be re-added
 	--- git commit -m ‘’ (to re-save the modified files with comments)
 	--- good habit: do git commit -m with comment information to track every modification
+step 3.2: modification of commit before push
+        --- git commit --amend -m 'New message'
 Step 4: gitignore file: touch .gitignore
 	--- files listed in .gitignore will be ignore when doing git commit and git status
 
